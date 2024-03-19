@@ -1,43 +1,39 @@
-// Function to add a new homework box element
-function addHomeworkBox(title, time) {
-    // Create a new homework box div
-    var newHomeworkBox = document.createElement('div');
-    newHomeworkBox.className = 'homework-box';
+function addTaskBox(title, time) {
+    
+    var newTaskButton = document.createElement('div');
+    newTaskButton.className = 'task-button';
 
-    // Create a paragraph element for the title
-    var titlePara = document.createElement('p');
-    titlePara.textContent = title;
-    newHomeworkBox.appendChild(titlePara);
+    var taskDesc = document.createElement('p');
+    taskDesc.textContent = title;
+    newTaskButton.appendChild(taskDesc);
 
-    // Create a paragraph element for the timeslot
-    var timePara = document.createElement('p');
-    timePara.className = 'timeslot';
-    timePara.textContent = time;
-    newHomeworkBox.appendChild(timePara);
+    var timeslot = document.createElement('p');
+    timeslot.className = 'timeslot';
+    timeslot.textContent = time;
+    newTaskButton.appendChild(timeslot);
 
-    // Append the new homework box to the assign-boxes div
     var assignBoxes = document.querySelector('.assign-boxes');
-    assignBoxes.appendChild(newHomeworkBox);
+    assignBoxes.appendChild(newTaskButton
+);
 
-    // Move the "Create new task" box to the bottom
-    var createTaskBox = document.getElementById('create-task-box');
-    assignBoxes.appendChild(createTaskBox);
+    // this moves the "Create New Task" button to the bottom of the list
+    var createTaskButton = document.getElementById('create-task-button');
+    assignBoxes.appendChild(createTaskButton);
 }
 
-// Function to handle the creation of a new task
+// Create a new task using the "Create New Task" button
 function createNewTask() {
     var title = prompt("Enter task name:");
     var time = prompt("Enter task time:");
     
     if (title && time) {
-        addHomeworkBox(title, time);
+        addTaskBox(title, time);
     } else {
         alert("Task name and time are required.");
     }
 }
 
-// Add event listener to the "Create new task" box
 document.addEventListener('DOMContentLoaded', function () {
-    var createTaskBox = document.getElementById('create-task-box');
-    createTaskBox.addEventListener('click', createNewTask);
+    var createTaskButton = document.getElementById('create-task-button');
+    createTaskButton.addEventListener('click', createNewTask);
 });
