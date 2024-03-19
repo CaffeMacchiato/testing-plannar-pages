@@ -1,0 +1,205 @@
+/* General styles */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #21ad51;
+    width: 15%;
+    height: 100%;
+}
+
+.menu-header {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    justify-content: flex-start;
+    border-radius: 0pt 0pt 20pt 0pt;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    height: 7%;
+    width: 100%; /* Stretch across the entire screen */
+    border-bottom: 2px solid black; /* Add black border */
+}
+
+.menu-header-button {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 30px;
+}
+
+#menu-header-home-button {
+    padding-left: 50px;
+}
+
+.menu-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 20%;
+    padding-bottom: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-button-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 20px;
+    width: auto;
+}
+
+.menu-icon {
+    margin-left: 10%;
+}
+
+.menu-text {
+    margin-top: 3px;
+    margin-left: 12%;
+}
+
+.menu-button,
+.menu-button-active {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50pt;
+    color: white;
+    background-color: #21ad51;
+    font-family: "Inter", sans-serif;
+    font-weight: 555;
+    font-size: 12pt;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    height: 40px;
+    width: 200px;
+}
+
+.menu-button-active {
+    color: #21ad51;
+    background-color: white;
+}
+
+.menu-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
+
+/* Dashboard specific styles */
+.dashboard {
+    padding-left: 0;
+    width: 100%;
+}
+
+.dashboard h1 {
+    padding-left: 5%;
+    font-weight: bold;
+}
+
+.bar {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid black;
+    width: 100%;
+}
+
+.bar h2 {
+    margin: 0;
+}
+
+.pagename {
+    padding: 10px;
+    background-color: #21ad51;
+}
+
+.dashboard > .homework-box {
+    padding-left: 5%;
+}
+
+.homework-box {
+    margin-bottom: 3%; /* Reduce margin-bottom */
+    text-align: left; /* Left-align content within each homework box */
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.homework-box p {
+    margin: 5px 0; /* Adjust margin to reduce spacing between paragraphs */
+    font-size: 18px; /* Increase font size */
+}
+
+.homework-box p:first-child {
+    font-weight: bold;
+}
+
+.homework-box .due-date {
+    color: green;
+}
+
+/* Content container */
+.content-container {
+    display: flex;
+}
+
+.picture,
+.assign-boxes {
+    width: 50%;
+    padding: 2% 5% 5%; /* Adjust the top padding */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.picture img,
+.homework-box {
+    margin: auto;
+}
+
+/* Ensure homework boxes are stacked vertically and left-aligned */
+.assign-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items from the top */
+    padding-left: 5%; /* Add left padding to separate from the picture */
+    padding-right: 5%; /* Add right padding to center within the right half */
+}
+
+/* Add a 2px wide black border around every homework box element */
+.homework-box {
+    border: 2px solid black;
+    padding: 10px; /* Add padding to separate content from border */
+    margin-bottom: 10px; /* Add margin between each homework box */
+    width: 100%; /* Ensure full width */
+    font-size: 18px; /* Increase font size */
+}
+
+/* Change text color for timeslot class to gray */
+.timeslot {
+    color: gray;
+    font-weight: bold; /* Make the gray text bold */
+}
+
+/* Apply spacing between homework boxes */
+.homework-box + .homework-box {
+    margin-top: 10px; /* Adjust the top margin to control spacing between homework boxes */
+}
