@@ -19,10 +19,9 @@ function addHomeworkBox(title, time) {
     var assignBoxes = document.querySelector('.assign-boxes');
     assignBoxes.appendChild(newHomeworkBox);
 
-    // Move the "Create new task" bar to the placeholder position
+    // Move the "Create new task" box to the bottom
     var createTaskBox = document.getElementById('create-task-box');
-    var placeholder = document.getElementById('create-task-placeholder');
-    placeholder.parentNode.insertBefore(createTaskBox, placeholder.nextSibling);
+    assignBoxes.appendChild(createTaskBox);
 }
 
 // Function to handle the creation of a new task
