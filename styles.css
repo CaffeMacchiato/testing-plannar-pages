@@ -34,8 +34,8 @@ body {
     border-radius: 0pt 0pt 20pt 0pt;
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
     height: 7%;
-    width: 100%; /* Stretch across the entire screen */
-    border-bottom: 2px solid black; /* Add black border */
+    width: 100%; 
+    border-bottom: 2px solid black; 
 }
 
 .menu-header-button {
@@ -131,31 +131,30 @@ body {
     background-color: #21ad51;
 }
 
-.dashboard > .homework-box {
+.dashboard > .task-box {
     padding-left: 5%;
 }
 
-.homework-box {
-    margin-bottom: 3%; /* Reduce margin-bottom */
-    text-align: left; /* Left-align content within each homework box */
+.task-box {
+    margin-bottom: 3%;
+    text-align: left; 
     border: 2px solid black;
     padding: 10px;
 }
 
-.homework-box p {
-    margin: 5px 0; /* Adjust margin to reduce spacing between paragraphs */
-    font-size: 18px; /* Increase font size */
+.task-box p {
+    margin: 5px 0; 
+    font-size: 18px; 
 }
 
-.homework-box p:first-child {
+.task-box p:first-child {
     font-weight: bold;
 }
 
-.homework-box .due-date {
+.task-box .due-date {
     color: green;
 }
 
-/* Content container */
 .content-container {
     display: flex;
 }
@@ -163,43 +162,43 @@ body {
 .picture,
 .assign-boxes {
     width: 50%;
-    padding: 2% 5% 5%; /* Adjust the top padding */
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    padding: 2% 5% 5%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .picture img,
-.homework-box {
+.task-box {
     margin: auto;
 }
 
-/* Ensure homework boxes are stacked vertically and left-aligned */
+/* this sets the task boxes to be stacked on top of each other and stay left-aligned */
 .assign-boxes {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    justify-content: flex-start; /* Align items from the top */
-    padding-left: 5%; /* Add left padding to separate from the picture */
-    padding-right: 5%; /* Add right padding to center within the right half */
+    align-items: center; 
+    justify-content: flex-start; 
+    padding-left: 5%;
+    padding-right: 5%; 
 }
 
-/* Add a 2px wide black border around every homework box element */
-.homework-box {
+/* this adds a 2px wide black border around every task box element */
+.task-box {
     border: 2px solid black;
-    padding: 10px; /* Add padding to separate content from border */
-    margin-bottom: 10px; /* Add margin between each homework box */
-    width: 100%; /* Ensure full width */
-    font-size: 18px; /* Increase font size */
+    padding: 10px;
+    margin-bottom: 10px; 
+    width: 100%; 
+    font-size: 18px; 
 }
 
-/* Change text color for timeslot class to gray */
+/* this changes the text color for the timeslot class to gray */
 .timeslot {
     color: gray;
-    font-weight: bold; /* Make the gray text bold */
+    font-weight: bold; 
 }
 
-/* Apply spacing between homework boxes */
-.homework-box + .homework-box {
-    margin-top: 10px; /* Adjust the top margin to control spacing between homework boxes */
+/* this applies spacing between task boxes without having it double up anywhere or when new task boxes are added */
+.task-box + .task-box {
+    margin-top: 10px; 
 }
