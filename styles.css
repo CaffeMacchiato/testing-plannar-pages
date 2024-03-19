@@ -131,27 +131,27 @@ body {
     background-color: #21ad51;
 }
 
-.dashboard > .task-box {
+.dashboard > .task-button {
     padding-left: 5%;
 }
 
-.task-box {
+.task-button {
     margin-bottom: 3%;
     text-align: left; 
     border: 2px solid black;
     padding: 10px;
 }
 
-.task-box p {
+.task-button p {
     margin: 5px 0; 
     font-size: 18px; 
 }
 
-.task-box p:first-child {
+.task-button p:first-child {
     font-weight: bold;
 }
 
-.task-box .due-date {
+.task-button .due-date {
     color: green;
 }
 
@@ -169,7 +169,7 @@ body {
 }
 
 .picture img,
-.task-box {
+.task-button {
     margin: auto;
 }
 
@@ -184,7 +184,7 @@ body {
 }
 
 /* this adds a 2px wide black border around every task box element */
-.task-box {
+.task-button {
     border: 2px solid black;
     padding: 10px;
     margin-bottom: 10px; 
@@ -199,6 +199,6 @@ body {
 }
 
 /* this applies spacing between task boxes without having it double up anywhere or when new task boxes are added */
-.task-box + .task-box {
+.task-button + .task-button {
     margin-top: 10px; 
 }
