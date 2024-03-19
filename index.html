@@ -3,9 +3,8 @@
 <html>
     <head>
         <title>Dashboard</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <script src="code.js"></script>
-
+        <link rel="stylesheet" type="text/css" href="calendar.css">
+        <script src="createnewtask.js"></script>
     </head>
 
     <body>
@@ -81,31 +80,32 @@
                 </div>
                 
                 <div class="content-container">
-                    <!-- Picture -->
+                    <!-- using a picture of my calendar mockup from our Figma prototype
+                         in place of a functional calendar -->
                     <div class="picture">
                         <img src="calendar.png" alt="Calendar Picture">
                     </div>
                 
-                    <!-- Assign boxes -->
+                    <!-- assignment boxes -->
                     <div class="assign-boxes">
-                        <div class="homework-box">
+                        <div class="task-box">
                             <p>Study for Physics Exam</p>
                             <p class="timeslot">8:30am - 10:30am</p>
                         </div>
 
-                        <div class="homework-box">
+                        <div class="task-box">
                             <p>Finish Linear Algebra HW #5</p>
                             <p class="timeslot">12:45pm - 2:00pm</p>
                         </div>
 
-                        <div class="homework-box">
+                        <div class="task-box">
                             <strong>Draft Software Eng. Project Proposal</strong>
                             <p class="timeslot">4:00pm - 6:15pm</p>
                         </div>
 
-                        <!-- "Create new task" box -->
-                        <div id="create-task-box" class="homework-box" style="cursor: pointer;">
-                            <p style="text-align: center;">Create new task</p>
+                        <!-- "Create New Task" button -->
+                        <div id="create-task-box" class="task-box" style="cursor: pointer;">
+                            <p style="text-align: center;">Create New Task</p>
                         </div>
                     </div>
 
