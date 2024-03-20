@@ -1,7 +1,7 @@
 function addTaskBox(title, time) {
     
     var newTaskBox = document.createElement('div');
-    newTaskBox.className = 'task-box'; // Changed class name to 'task-box'
+    newTaskBox.className = 'task-box';
 
     var taskDesc = document.createElement('p');
     taskDesc.textContent = title;
