@@ -1,22 +1,21 @@
 function addTaskBox(title, time) {
     
-    var newTaskButton = document.createElement('div');
-    newTaskButton.className = 'task-button';
+    var newTaskBox = document.createElement('div');
+    newTaskBox.className = 'task-box'; // Changed class name to 'task-box'
 
     var taskDesc = document.createElement('p');
     taskDesc.textContent = title;
-    newTaskButton.appendChild(taskDesc);
+    newTaskBox.appendChild(taskDesc);
 
     var timeslot = document.createElement('p');
     timeslot.className = 'timeslot';
     timeslot.textContent = time;
-    newTaskButton.appendChild(timeslot);
+    newTaskBox.appendChild(timeslot);
 
     var assignBoxes = document.querySelector('.assign-boxes');
-    assignBoxes.appendChild(newTaskButton
-);
+    assignBoxes.appendChild(newTaskBox);
 
-    // this moves the "Create New Task" button to the bottom of the list
+    // Move the "Create New Task" button to the bottom of the list
     var createTaskButton = document.getElementById('create-task-button');
     assignBoxes.appendChild(createTaskButton);
 }
