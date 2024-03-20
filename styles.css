@@ -1,4 +1,3 @@
-/* General styles */
 html,
 body {
     height: 100%;
@@ -103,7 +102,7 @@ body {
     padding-bottom: 20px;
 }
 
-/* Dashboard specific styles */
+/* MY CONTENT STARTS HERE */
 .dashboard {
     padding-left: 0;
     width: 100%;
