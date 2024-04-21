@@ -36,7 +36,7 @@ function addTaskBox(title, time) {
     };
     newTaskBox.appendChild(deleteButton);
 
-    var assignBoxes = document.getElementById('assign-boxes'); // Changed this to use ID
+    var assignBoxes = document.querySelector('.assign-boxes');
     assignBoxes.appendChild(newTaskBox); // Append new task box to the end
 
     // Adjust the left position of the delete button
