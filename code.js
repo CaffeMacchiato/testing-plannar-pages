@@ -55,4 +55,25 @@ function createNewTask() {
 document.addEventListener('DOMContentLoaded', function () {
     var createTaskButton = document.getElementById('create-task-button');
     createTaskButton.addEventListener('click', createNewTask);
+
+    // Add "Edit" button functionality to existing task boxes
+    var editButtons = document.querySelectorAll('.edit-button');
+    editButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var taskBox = button.parentElement;
+            var taskDesc = taskBox.querySelector('p:not(.timeslot)');
+            var timeslot = taskBox.querySelector('.timeslot');
+            editTask(taskDesc.textContent, timeslot.textContent, taskDesc, timeslot);
+        });
+    });
+});
+
+// Add "Edit" button functionality to new task boxes
+document.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('edit-button')) {
+        var taskBox = event.target.parentElement;
+        var taskDesc = taskBox.querySelector('p:not(.timeslot)');
+        var timeslot = taskBox.querySelector('.timeslot');
+        editTask(taskDesc.textContent, timeslot.textContent, taskDesc, timeslot);
+    }
 });
