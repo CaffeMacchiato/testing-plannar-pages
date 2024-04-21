@@ -53,9 +53,6 @@ function createNewTask() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    var createTaskButton = document.getElementById('create-task-button');
-    createTaskButton.addEventListener('click', createNewTask);
-
     // Add "Edit" button functionality to existing task boxes
     var editButtons = document.querySelectorAll('.edit-button');
     editButtons.forEach(function(button) {
@@ -66,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
             editTask(taskDesc.textContent, timeslot.textContent, taskDesc, timeslot);
         });
     });
+
+    var createTaskButton = document.getElementById('create-task-button');
+    createTaskButton.addEventListener('click', createNewTask);
 });
 
 // Add "Edit" button functionality to new task boxes
