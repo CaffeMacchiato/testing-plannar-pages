@@ -164,9 +164,9 @@ body {
     margin-bottom: 10px;
     width: 100%;
     font-size: 18px;
-    display: flex; /* Added */
-    justify-content: space-between; /* Added */
-    align-items: center; /* Added */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* this changes the text color for the timeslot class to gray */
@@ -182,7 +182,7 @@ body {
 
 /* Style for the "Edit" button inside task box */
 .edit-button {
-    background-color: #f39c12;
+    background-color: #21ad51; /* Changed to the green color */
     color: white;
     border: none;
     padding: 5px 10px;
@@ -190,4 +190,17 @@ body {
     margin-right: 10px;
     border-radius: 5px;
     font-size: 14px;
+}
+
+.task-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.task-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
 }
