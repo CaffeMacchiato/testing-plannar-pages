@@ -2,21 +2,27 @@ function addTaskBox(title, time) {
     var newTaskBox = document.createElement('div');
     newTaskBox.className = 'task-box';
 
-    var taskDesc = document.createElement('p');
-    taskDesc.textContent = title;
-    newTaskBox.appendChild(taskDesc);
+    var taskContent = document.createElement('div');
+    taskContent.className = 'task-content';
+
+    var taskTitle = document.createElement('p');
+    taskTitle.className = 'task-title';
+    taskTitle.textContent = title;
+    taskContent.appendChild(taskTitle);
 
     var timeslot = document.createElement('p');
     timeslot.className = 'timeslot';
     timeslot.textContent = time;
-    newTaskBox.appendChild(timeslot);
+    taskContent.appendChild(timeslot);
+
+    newTaskBox.appendChild(taskContent);
 
     // This creates an "Edit" button within the task textbox
     var editButton = document.createElement('button');
     editButton.textContent = 'Edit';
     editButton.className = 'edit-button';
     editButton.onclick = function() {
-        editTask(title, time, taskDesc, timeslot);
+        editTask(title, time, taskTitle, timeslot);
     };
     newTaskBox.appendChild(editButton);
 
@@ -29,13 +35,13 @@ function addTaskBox(title, time) {
 }
 
 // This is a function to allow users to edit any task
-function editTask(oldTitle, oldTime, taskDescElement, timeslotElement) {
+function editTask(oldTitle, oldTime, taskTitleElement, timeslotElement) {
     var newTitle = prompt("Enter new task name:", oldTitle);
     var newTime = prompt("Enter new task time:", oldTime);
 
     if (newTitle !== null && newTime !== null) {
         // Update task details
-        taskDescElement.textContent = newTitle;
+        taskTitleElement.textContent = newTitle;
         timeslotElement.textContent = newTime;
     }
 }
@@ -58,9 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
     editButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             var taskBox = button.parentElement;
-            var taskDesc = taskBox.querySelector('p:not(.timeslot)');
-            var timeslot = taskBox.querySelector('.timeslot');
-            editTask(taskDesc.textContent, timeslot.textContent, taskDesc, timeslot);
+            var taskContent = taskBox.querySelector('.task-content');
+            var taskTitle = taskContent.querySelector('.task-title');
+            var timeslot = taskContent.querySelector('.timeslot');
+            editTask(taskTitle.textContent, timeslot.textContent, taskTitle, timeslot);
         });
     });
 
@@ -72,8 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('click', function(event) {
     if (event.target && event.target.classList.contains('edit-button')) {
         var taskBox = event.target.parentElement;
-        var taskDesc = taskBox.querySelector('p:not(.timeslot)');
-        var timeslot = taskBox.querySelector('.timeslot');
-        editTask(taskDesc.textContent, timeslot.textContent, taskDesc, timeslot);
+        var taskContent = taskBox.querySelector('.task-content');
+        var taskTitle = taskContent.querySelector('.task-title');
+        var timeslot = taskContent.querySelector('.timeslot');
+        editTask(taskTitle.textContent, timeslot.textContent, taskTitle, timeslot);
     }
 });
