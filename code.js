@@ -39,10 +39,8 @@ function addTaskBox(title, time) {
     var assignBoxes = document.querySelector('.assign-boxes');
     assignBoxes.appendChild(newTaskBox);
 
-    // Adjust the left position of the delete button after a short delay
-    setTimeout(function() {
-        positionDeleteButton(deleteButton);
-    }, 100);
+    // Adjust the left position of the delete button
+    positionDeleteButton(deleteButton);
 }
 
 // Function to adjust the left position of the "Delete" button
