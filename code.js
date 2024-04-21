@@ -1,15 +1,7 @@
+// Function to add a new task box
 function addTaskBox(title, time) {
     var newTaskBox = document.createElement('div');
     newTaskBox.className = 'task-box';
-
-    // This creates a "Delete" button within the task box
-    var deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.className = 'delete-button';
-    deleteButton.onclick = function() {
-        deleteTask(newTaskBox);
-    };
-    newTaskBox.appendChild(deleteButton);
 
     var taskContent = document.createElement('div');
     taskContent.className = 'task-content';
@@ -35,20 +27,33 @@ function addTaskBox(title, time) {
     };
     newTaskBox.appendChild(editButton);
 
+    // This creates a "Delete" button outside the task box
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'delete-button';
+    deleteButton.onclick = function() {
+        deleteTaskBox(newTaskBox);
+    };
+    newTaskBox.appendChild(deleteButton);
+
     var assignBoxes = document.querySelector('.assign-boxes');
     assignBoxes.appendChild(newTaskBox);
 
     // This moves the "Create New Task" button to the bottom of the list after every new task box is added
     var createTaskButton = document.getElementById('create-task-button');
     assignBoxes.appendChild(createTaskButton);
+
+    // Adjust the left position of the delete button based on the task box width
+    var deleteButtonWidth = deleteButton.offsetWidth;
+    deleteButton.style.left = -1 * (deleteButtonWidth + 10) + 'px';
 }
 
 // Function to delete a task box
-function deleteTask(taskBox) {
+function deleteTaskBox(taskBox) {
     taskBox.remove();
 }
 
-// This is a function to allow users to edit any task
+// Function to edit an existing task
 function editTask(oldTitle, oldTime, taskTitleElement, timeslotElement) {
     var newTitle = prompt("Enter new task name:", oldTitle);
     var newTime = prompt("Enter new task time:", oldTime);
@@ -60,7 +65,7 @@ function editTask(oldTitle, oldTime, taskTitleElement, timeslotElement) {
     }
 }
 
-// This creates a new task using the "Create New Task" button
+// Function to create a new task using the "Create New Task" button
 function createNewTask() {
     var title = prompt("Enter task name:");
     var time = prompt("Enter task time:");
@@ -72,6 +77,7 @@ function createNewTask() {
     }
 }
 
+// Event listener for when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function () {
     // This adds the "Edit" button functionality to EXISTING task boxes
     var editButtons = document.querySelectorAll('.edit-button');
@@ -87,21 +93,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var createTaskButton = document.getElementById('create-task-button');
     createTaskButton.addEventListener('click', createNewTask);
+});
 
-    // This adds the "Delete" button functionality to EXISTING task boxes
-    var deleteButtons = document.querySelectorAll('.delete-button');
-    deleteButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            var taskBox = button.parentElement;
-            deleteTask(taskBox);
-        });
-    });
-
-    // This adds the "Delete" button functionality to NEWLY CREATED task boxes
-    document.addEventListener('click', function(event) {
-        if (event.target && event.target.classList.contains('delete-button')) {
-            var taskBox = event.target.parentElement;
-            deleteTask(taskBox);
-        }
-    });
+// This adds the "Edit" button functionality to NEWLY CREATED task boxes
+document.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('edit-button')) {
+        var taskBox = event.target.parentElement;
+        var taskContent = taskBox.querySelector('.task-content');
+        var taskTitle = taskContent.querySelector('.task-title');
+        var timeslot = taskContent.querySelector('.timeslot');
+        editTask(taskTitle.textContent, timeslot.textContent, taskTitle, timeslot);
+    }
 });
