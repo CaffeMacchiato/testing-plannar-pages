@@ -59,7 +59,7 @@ function createNewTask() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Add "Edit" button functionality to existing task boxes
+    // This adds the "Edit" button functionality to EXISTING task boxes
     var editButtons = document.querySelectorAll('.edit-button');
     editButtons.forEach(function(button) {
         button.addEventListener('click', function() {
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     createTaskButton.addEventListener('click', createNewTask);
 });
 
-// Add "Edit" button functionality to new task boxes
+// This adds the "Edit" button functionality to NEWLY CREATED task boxes
 document.addEventListener('click', function(event) {
     if (event.target && event.target.classList.contains('edit-button')) {
         var taskBox = event.target.parentElement;
