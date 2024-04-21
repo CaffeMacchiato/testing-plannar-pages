@@ -39,7 +39,7 @@ function addTaskBox(title, time) {
     var assignBoxes = document.querySelector('.assign-boxes');
     assignBoxes.appendChild(newTaskBox);
 
-    // Adjust the left position of the delete button based on the task box width
+    // Adjust the left position of the delete button
     positionDeleteButton(deleteButton);
 
     // This moves the "Create New Task" button to the bottom of the list after every new task box is added
@@ -51,7 +51,8 @@ function addTaskBox(title, time) {
 function positionDeleteButton(deleteButton) {
     var taskBox = deleteButton.parentElement;
     var deleteButtonWidth = deleteButton.offsetWidth;
-    deleteButton.style.left = -1 * (deleteButtonWidth + 10) + 'px';
+    var taskBoxWidth = taskBox.offsetWidth;
+    deleteButton.style.left = (taskBoxWidth - deleteButtonWidth) / 2 + 'px';
 }
 
 // Function to delete a task box
