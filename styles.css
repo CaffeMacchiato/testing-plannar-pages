@@ -193,7 +193,7 @@ body {
     font-size: 14px;
 }
 
-/* This styles the "Delete" button outside each task box */
+/* this styles the "Delete" button outside each task box */
 .delete-button {
     background-color: #ff4d4d;
     color: white;
@@ -203,7 +203,7 @@ body {
     border-radius: 5px;
     font-size: 14px;
     position: absolute;
-    right: -50px; /* Adjusted position to be outside the task box */
+    left: -50px; /* Adjusted position to be outside AND TO THE LEFT of each task box */
     top: 50%;
     transform: translateY(-50%);
 }
