@@ -41,6 +41,10 @@ function addTaskBox(title, time) {
 
     // Adjust the left position of the delete button
     positionDeleteButton(deleteButton);
+
+    // This moves the "Create New Task" button to the bottom of the list after every new task box is added
+    var createTaskButton = document.getElementById('create-task-button');
+    assignBoxes.appendChild(createTaskButton);
 }
 
 // Function to adjust the left position of the "Delete" button
@@ -100,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // This adds the "Delete" button functionality to EXISTING task boxes
     var deleteButtons = document.querySelectorAll('.delete-button');
     deleteButtons.forEach(function(button) {
+        positionDeleteButton(button);
         button.addEventListener('click', function() {
             var taskBox = button.parentElement;
             deleteTaskBox(taskBox);
