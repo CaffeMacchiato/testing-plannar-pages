@@ -33,8 +33,8 @@ body {
     border-radius: 0pt 0pt 20pt 0pt;
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
     height: 7%;
-    width: 100%; 
-    border-bottom: 2px solid black; 
+    width: 100%;
+    border-bottom: 2px solid black;
 }
 
 .menu-header-button {
@@ -102,7 +102,6 @@ body {
     padding-bottom: 20px;
 }
 
-/* MY CONTENT STARTS HERE */
 .dashboard {
     padding-left: 0;
     width: 100%;
@@ -130,30 +129,6 @@ body {
     background-color: #21ad51;
 }
 
-.dashboard > .task-box {
-    padding-left: 5%;
-}
-
-.task-box {
-    margin-bottom: 3%;
-    text-align: left; 
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.task-box p {
-    margin: 5px 0; 
-    font-size: 18px; 
-}
-
-.task-box p:first-child {
-    font-weight: bold;
-}
-
-.task-box .due-date {
-    color: green;
-}
-
 .content-container {
     display: flex;
 }
@@ -161,10 +136,10 @@ body {
 .picture,
 .assign-boxes {
     width: 50%;
-    padding: 2% 5% 5%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    padding: 2% 5% 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .picture img,
@@ -176,28 +151,43 @@ body {
 .assign-boxes {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: flex-start; 
+    align-items: center;
+    justify-content: flex-start;
     padding-left: 5%;
-    padding-right: 5%; 
+    padding-right: 5%;
 }
 
 /* this adds a 2px wide black border around every task box element */
 .task-box {
     border: 2px solid black;
     padding: 10px;
-    margin-bottom: 10px; 
-    width: 100%; 
-    font-size: 18px; 
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 18px;
+    display: flex; /* Added */
+    justify-content: space-between; /* Added */
+    align-items: center; /* Added */
 }
 
 /* this changes the text color for the timeslot class to gray */
 .timeslot {
     color: gray;
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 /* this applies spacing between task boxes without having it double up anywhere or when new task boxes are added */
 .task-box + .task-box {
-    margin-top: 10px; 
+    margin-top: 10px;
+}
+
+/* Style for the "Edit" button inside task box */
+.edit-button {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 14px;
 }
