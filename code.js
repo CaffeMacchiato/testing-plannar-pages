@@ -2,6 +2,15 @@ function addTaskBox(title, time) {
     var newTaskBox = document.createElement('div');
     newTaskBox.className = 'task-box';
 
+    // This creates a "Delete" button within the task box
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'delete-button';
+    deleteButton.onclick = function() {
+        deleteTask(newTaskBox);
+    };
+    newTaskBox.appendChild(deleteButton);
+
     var taskContent = document.createElement('div');
     taskContent.className = 'task-content';
 
@@ -32,6 +41,11 @@ function addTaskBox(title, time) {
     // This moves the "Create New Task" button to the bottom of the list after every new task box is added
     var createTaskButton = document.getElementById('create-task-button');
     assignBoxes.appendChild(createTaskButton);
+}
+
+// Function to delete a task box
+function deleteTask(taskBox) {
+    taskBox.remove();
 }
 
 // This is a function to allow users to edit any task
@@ -73,15 +87,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var createTaskButton = document.getElementById('create-task-button');
     createTaskButton.addEventListener('click', createNewTask);
-});
 
-// This adds the "Edit" button functionality to NEWLY CREATED task boxes
-document.addEventListener('click', function(event) {
-    if (event.target && event.target.classList.contains('edit-button')) {
-        var taskBox = event.target.parentElement;
-        var taskContent = taskBox.querySelector('.task-content');
-        var taskTitle = taskContent.querySelector('.task-title');
-        var timeslot = taskContent.querySelector('.timeslot');
-        editTask(taskTitle.textContent, timeslot.textContent, taskTitle, timeslot);
-    }
+    // This adds the "Delete" button functionality to EXISTING task boxes
+    var deleteButtons = document.querySelectorAll('.delete-button');
+    deleteButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var taskBox = button.parentElement;
+            deleteTask(taskBox);
+        });
+    });
+
+    // This adds the "Delete" button functionality to NEWLY CREATED task boxes
+    document.addEventListener('click', function(event) {
+        if (event.target && event.target.classList.contains('delete-button')) {
+            var taskBox = event.target.parentElement;
+            deleteTask(taskBox);
+        }
+    });
 });
