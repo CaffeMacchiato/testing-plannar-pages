@@ -203,7 +203,7 @@ body {
     border-radius: 5px;
     font-size: 14px;
     position: absolute;
-    left: -100px; /* Adjusted position to be outside AND TO THE LEFT of each task box */
+    left: -20%; /* Adjusted position to be outside AND TO THE LEFT of each task box BASED ON PERCENTAGES*/
     top: 50%;
     transform: translateY(-50%);
 }
