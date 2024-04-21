@@ -1,5 +1,4 @@
 function addTaskBox(title, time) {
-    
     var newTaskBox = document.createElement('div');
     newTaskBox.className = 'task-box';
 
@@ -12,15 +11,36 @@ function addTaskBox(title, time) {
     timeslot.textContent = time;
     newTaskBox.appendChild(timeslot);
 
+    // This creates an "Edit" button within the task textbox
+    var editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+    editButton.className = 'edit-button';
+    editButton.onclick = function() {
+        editTask(title, time, taskDesc, timeslot);
+    };
+    newTaskBox.appendChild(editButton);
+
     var assignBoxes = document.querySelector('.assign-boxes');
     assignBoxes.appendChild(newTaskBox);
 
-    // Move the "Create New Task" button to the bottom of the list
+    // This moves the "Create New Task" button to the bottom of the list after every new task box is added
     var createTaskButton = document.getElementById('create-task-button');
     assignBoxes.appendChild(createTaskButton);
 }
 
-// Create a new task using the "Create New Task" button
+// This is a function to allow users to edit any task
+function editTask(oldTitle, oldTime, taskDescElement, timeslotElement) {
+    var newTitle = prompt("Enter new task name:", oldTitle);
+    var newTime = prompt("Enter new task time:", oldTime);
+
+    if (newTitle !== null && newTime !== null) {
+        // Update task details
+        taskDescElement.textContent = newTitle;
+        timeslotElement.textContent = newTime;
+    }
+}
+
+// This creates a new task using the "Create New Task" button
 function createNewTask() {
     var title = prompt("Enter task name:");
     var time = prompt("Enter task time:");
