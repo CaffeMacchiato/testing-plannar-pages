@@ -180,9 +180,9 @@ body {
     margin-top: 10px;
 }
 
-/* Style for the "Edit" button inside task box */
+/* this styles the "Edit" button inside each task box */
 .edit-button {
-    background-color: #21ad51; /* Changed to the green color */
+    background-color: #21ad51;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -203,4 +203,21 @@ body {
     margin: 0;
     font-size: 18px;
     font-weight: bold;
+}
+
+/* this adds a 10px right margin between the "timeslot" text and the "Edit" button */
+.timeslot {
+    margin-right: 10px;
+}
+
+#create-task-button {
+    background-color: #21ad51; 
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold; 
+    border-radius: 5px;
+    font-size: 14px;
 }
