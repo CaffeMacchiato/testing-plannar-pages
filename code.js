@@ -52,7 +52,7 @@ function positionDeleteButton(deleteButton) {
     var taskBox = deleteButton.parentElement;
     var deleteButtonWidth = deleteButton.offsetWidth;
     var taskBoxWidth = taskBox.offsetWidth;
-    deleteButton.style.left = (taskBoxWidth - deleteButtonWidth) / 2 + 'px';
+    deleteButton.style.left = '-20px'; // Adjust left position to move outside and to the left
 }
 
 // Function to delete a task box
