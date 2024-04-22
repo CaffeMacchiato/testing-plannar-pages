@@ -23,9 +23,9 @@ function addTaskBox(title, time) {
     editButton.textContent = 'Edit';
     editButton.className = 'edit-button';
     editButton.onclick = function() {
-        editTask(title, time, taskTitle, timeslot);
+        editTask(taskTitle, timeslot);
     };
-    newTaskBox.appendChild(editButton);
+    taskContent.appendChild(editButton);
 
     // This creates a "Delete" button outside the task box
     var deleteButton = document.createElement('button');
@@ -39,20 +39,9 @@ function addTaskBox(title, time) {
     var assignBoxes = document.querySelector('.assign-boxes');
     assignBoxes.appendChild(newTaskBox); // Append new task box to the end
 
-    // Adjust the left position of the delete button
-    positionDeleteButton(deleteButton);
-
     // Move the "Create New Task" button to the bottom
     var createTaskButton = document.getElementById('create-task-button');
     assignBoxes.appendChild(createTaskButton);
-}
-
-// Function to adjust the left position of the "Delete" button
-function positionDeleteButton(deleteButton) {
-    var taskBox = deleteButton.parentElement;
-    var deleteButtonWidth = deleteButton.offsetWidth;
-    var taskBoxWidth = taskBox.offsetWidth;
-    deleteButton.style.left = '-20px'; // Adjust left position to move outside and to the left
 }
 
 // Function to delete a task box
@@ -61,14 +50,14 @@ function deleteTaskBox(taskBox) {
 }
 
 // Function to edit an existing task
-function editTask(oldTitle, oldTime, taskTitleElement, timeslotElement) {
-    var newTitle = prompt("Enter new task name:", oldTitle);
-    var newTime = prompt("Enter new task time:", oldTime);
+function editTask(taskTitle, timeslot) {
+    var newTitle = prompt("Enter new task name:", taskTitle.textContent);
+    var newTime = prompt("Enter new task time:", timeslot.textContent);
 
     if (newTitle !== null && newTime !== null) {
         // Update task details
-        taskTitleElement.textContent = newTitle;
-        timeslotElement.textContent = newTime;
+        taskTitle.textContent = newTitle;
+        timeslot.textContent = newTime;
     }
 }
 
@@ -86,39 +75,26 @@ function createNewTask() {
 
 // Event listener for when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function () {
-    // This adds the "Edit" button functionality to EXISTING task boxes
-    var editButtons = document.querySelectorAll('.edit-button');
-    editButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            var taskBox = button.parentElement;
-            var taskContent = taskBox.querySelector('.task-content');
-            var taskTitle = taskContent.querySelector('.task-title');
-            var timeslot = taskContent.querySelector('.timeslot');
-            editTask(taskTitle.textContent, timeslot.textContent, taskTitle, timeslot);
-        });
-    });
-
     var createTaskButton = document.getElementById('create-task-button');
     createTaskButton.addEventListener('click', createNewTask);
 
     // This adds the "Delete" button functionality to EXISTING task boxes
     var deleteButtons = document.querySelectorAll('.delete-button');
     deleteButtons.forEach(function(button) {
-        positionDeleteButton(button);
         button.addEventListener('click', function() {
             var taskBox = button.parentElement;
             deleteTaskBox(taskBox);
         });
     });
-});
 
-// This adds the "Edit" button functionality to NEWLY CREATED task boxes
-document.addEventListener('click', function(event) {
-    if (event.target && event.target.classList.contains('edit-button')) {
-        var taskBox = event.target.parentElement;
-        var taskContent = taskBox.querySelector('.task-content');
-        var taskTitle = taskContent.querySelector('.task-title');
-        var timeslot = taskContent.querySelector('.timeslot');
-        editTask(taskTitle.textContent, timeslot.textContent, taskTitle, timeslot);
-    }
+    // This adds the "Edit" button functionality to EXISTING and NEWLY CREATED task boxes
+    var editButtons = document.querySelectorAll('.edit-button');
+    editButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var taskContent = button.parentElement;
+            var taskTitle = taskContent.querySelector('.task-title');
+            var timeslot = taskContent.querySelector('.timeslot');
+            editTask(taskTitle, timeslot);
+        });
+    });
 });
